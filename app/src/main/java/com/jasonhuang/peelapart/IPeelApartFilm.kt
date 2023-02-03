@@ -21,7 +21,7 @@ interface IPeelApartFilm {
 
     fun getTime(index: Int): Int
 
-    fun getTemperatureArr(): DoubleArray
+    fun getTemperatures(): DoubleArray
 
-    fun getTimeArr(): IntArray
+    fun getTimes(): IntArray
 }

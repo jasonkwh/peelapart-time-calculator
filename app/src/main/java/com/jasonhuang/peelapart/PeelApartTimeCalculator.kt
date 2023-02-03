@@ -3,8 +3,6 @@ package com.jasonhuang.peelapart
 import kotlin.math.roundToInt
 
 class PeelApartTimeCalculator constructor(_temperature: Double, _film: IPeelApartFilm): IPeelApartTimeCalculator {
-    //var temperatureArr: DoubleArray = doubleArrayOf(10.0, 15.0, 20.0, 25.0, 30.0, 35.0)
-    //var timeArr: IntArray = intArrayOf(270, 180, 120, 90, 75, 60)
     var film = _film
     var temperature = _temperature
 
@@ -15,7 +13,7 @@ class PeelApartTimeCalculator constructor(_temperature: Double, _film: IPeelApar
 
         var time: Int = film.lastTime()
 
-        for ((index, value) in film.getTemperatureArr().withIndex()) {
+        for ((index, value) in film.getTemperatures().withIndex()) {
             // get closest time directly
             if (temperature.roundToInt() == value.toInt()) {
                 return film.getTime(index)

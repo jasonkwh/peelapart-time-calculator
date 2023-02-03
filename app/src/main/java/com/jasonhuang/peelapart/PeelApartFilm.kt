@@ -1,88 +1,87 @@
 package com.jasonhuang.peelapart
 
-class PeelApartFilm constructor(_temperatureArr: DoubleArray, _timeArr: IntArray): IPeelApartFilm {
-    var temperatureArr: DoubleArray = _temperatureArr
-    var timeArr: IntArray = _timeArr
+class PeelApartFilm constructor(_filmType: PeelApartFilmType): IPeelApartFilm {
+    var filmType: PeelApartFilmType = _filmType
 
     override fun last(): Pair<Double, Int> {
         if (isNotEmpty()) {
-            return Pair(temperatureArr.last(), timeArr.last())
+            return Pair(filmType.temperatures.last(), filmType.times.last())
         }
         return Pair(0.0, 0)
     }
 
     override fun lastTemperature(): Double {
         if (isNotEmpty()) {
-            return temperatureArr.last()
+            return filmType.temperatures.last()
         }
         return 0.0
     }
 
     override fun lastTime(): Int {
         if (isNotEmpty()) {
-            return timeArr.last()
+            return filmType.times.last()
         }
         return 0
     }
 
     override fun lastIndex(): Int {
         if (isNotEmpty()) {
-            return temperatureArr.lastIndex
+            return filmType.temperatures.lastIndex
         }
         return 0
     }
 
     override fun first(): Pair<Double, Int> {
         if (isNotEmpty()) {
-            return Pair(temperatureArr.first(), timeArr.first())
+            return Pair(filmType.temperatures.first(), filmType.times.first())
         }
         return Pair(0.0, 0)
     }
 
     override fun firstTemperature(): Double {
         if (isNotEmpty()) {
-            return temperatureArr.first()
+            return filmType.temperatures.first()
         }
         return 0.0
     }
 
     override fun firstTime(): Int {
         if (isNotEmpty()) {
-            return timeArr.first()
+            return filmType.times.first()
         }
         return 0
     }
 
     override fun get(index: Int): Pair<Double, Int> {
         if (isNotEmpty()) {
-            return Pair(temperatureArr[index], timeArr[index])
+            return Pair(filmType.temperatures[index], filmType.times[index])
         }
         return Pair(0.0, 0)
     }
 
     override fun getTemperature(index: Int): Double {
         if (isNotEmpty()) {
-            return temperatureArr[index]
+            return filmType.temperatures[index]
         }
         return 0.0
     }
 
     override fun getTime(index: Int): Int {
         if (isNotEmpty()) {
-            return timeArr[index]
+            return filmType.times[index]
         }
         return 0
     }
 
-    override fun getTemperatureArr(): DoubleArray {
-        return temperatureArr
+    override fun getTemperatures(): DoubleArray {
+        return filmType.temperatures
     }
 
-    override fun getTimeArr(): IntArray {
-        return timeArr
+    override fun getTimes(): IntArray {
+        return filmType.times
     }
 
     private fun isNotEmpty(): Boolean {
-        return (temperatureArr.size == timeArr.size && temperatureArr.isNotEmpty() && timeArr.isNotEmpty())
+        return (filmType.temperatures.size == filmType.times.size && filmType.temperatures.isNotEmpty() && filmType.times.isNotEmpty())
     }
 }

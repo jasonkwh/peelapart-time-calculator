@@ -8,7 +8,8 @@ class PeelApartTimeCalculatorTest {
 
     @Test
     fun testCalculate() {
-        var calc = PeelApartTimeCalculator(9.5)
+        var film = PeelApartFilm(PeelApartFilmType.FP3000B)
+        var calc = PeelApartTimeCalculator(16.1, film)
         println(calc.calculate())
     }
 }
