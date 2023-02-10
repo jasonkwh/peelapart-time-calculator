@@ -1,6 +1,6 @@
 package com.jasonhuang.peelapart
 
-class PeelApartFilm constructor(_filmType: PeelApartFilmType): IPeelApartFilm {
+internal class PeelApartFilm constructor(_filmType: PeelApartFilmType): IPeelApartFilm {
     var filmType: PeelApartFilmType = _filmType
 
     override fun last(): Pair<Double, Int> {

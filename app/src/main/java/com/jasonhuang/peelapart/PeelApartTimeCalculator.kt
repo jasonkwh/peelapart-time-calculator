@@ -2,12 +2,15 @@ package com.jasonhuang.peelapart
 
 import kotlin.math.roundToInt
 
-class PeelApartTimeCalculator constructor(_temperature: Double, _film: IPeelApartFilm): IPeelApartTimeCalculator {
+internal class PeelApartTimeCalculator constructor(_temperature: Double, _film: IPeelApartFilm) :
+    IPeelApartTimeCalculator {
     var film = _film
     var temperature = _temperature
 
     override fun calculate(): Int {
-        if (temperature.roundToInt() > film.lastTemperature().toInt() || temperature.roundToInt() < film.firstTemperature().toInt()) {
+        if (temperature.roundToInt() > film.lastTemperature()
+                .toInt() || temperature.roundToInt() < film.firstTemperature().toInt()
+        ) {
             return 0
         }
 
@@ -19,8 +22,8 @@ class PeelApartTimeCalculator constructor(_temperature: Double, _film: IPeelApar
                 return film.getTime(index)
             } else {
                 if (index != film.lastIndex()) {
-                    if (temperature > value && temperature < film.getTemperature(index+1)) {
-                        time = getTime(temperature, index, index+1)
+                    if (temperature > value && temperature < film.getTemperature(index + 1)) {
+                        time = getTime(temperature, index, index + 1)
                     }
                 }
             }

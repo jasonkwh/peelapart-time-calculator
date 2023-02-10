@@ -3,7 +3,7 @@ package com.jasonhuang.peelapart
 import java.net.URL
 import org.json.JSONObject
 
-class WeatherManager constructor(_apikey: String): IWeatherManager {
+internal class WeatherManager constructor(_apikey: String): IWeatherManager {
     var apikey : String = _apikey
 
     override fun getTemperature(lat: Double, lon: Double): Double {
